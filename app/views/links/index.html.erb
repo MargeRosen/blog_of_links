@@ -1,0 +1,35 @@
+<h1>Listing a blog of links</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Link</th>
+      <th>Description</th>
+      <th>Created</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @links.each do |link| %>
+    <!  Created.order('created DESC') ?
+    <! is this where the sort logic would go?
+      <tr>
+        <td><%= link.title %></td>
+        <td><%= link.link %></td>
+        <td><%= link.description %></td>
+        <td><%= link.created %></td>
+        <td><%= link_to 'Show', link %></td>
+        <td><%= link_to 'Edit', edit_link_path(link) %></td>
+        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Link', new_link_path %>
